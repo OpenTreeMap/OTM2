@@ -200,7 +200,7 @@ def _small_feature_photo_url(feature):
 
 
 def user(request, username):
-    user = get_object_or_404(User, username=username)
+    user = get_object_or_404(User, username__iexact=username)
     instance_id = request.GET.get('instance_id', None)
 
     instance = (get_instance_or_404(pk=instance_id)
